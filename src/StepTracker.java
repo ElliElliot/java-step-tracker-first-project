@@ -2,6 +2,7 @@ public class StepTracker {
     MonthData[] monthToData;
     int target = 10000;
     int saveStep;
+    int sumDays;
     public StepTracker() {
         monthToData = new MonthData[11];
         for (int j = 0; j < monthToData.length; j++) {
@@ -21,23 +22,24 @@ public class StepTracker {
             int maximumSteps = 0;
             double averageSteps = 0;
             for (int i = 0; i < 30; i++) {
-                sum = monthToData[month].days[i]+sum; // Считаем сумму шагов в месяце
-                if (maximumSteps < monthToData[month].days[i]){// поиск максимального значения шагов
-                    maximumSteps = monthToData[month].days[i];
+                sumDays =  monthToData[month].days[i];
+                sum = sumDays+sum; // Считаем сумму шагов в месяце
+                if (maximumSteps < sumDays){// поиск максимального значения шагов
+                    maximumSteps = sumDays;
                 }
-                if (monthToData[month].days[i] >= target){ // Ищем лучшую серию
+                if (sumDays >= target){ // Ищем лучшую серию
                     currentCounter = currentCounter + 1;
                     if(currentCounter == i+1){ // если выполняется план на 30 дней
                         maxCounter=currentCounter;
                     } //
                 }
-                if(monthToData[month].days[i] < target) {
+                if(sumDays < target) {
                     if (currentCounter > maxCounter) {
                         maxCounter = currentCounter;
                     }
                     currentCounter = 0;
                 }
-                System.out.print((i+1) + " день: " + monthToData[month].days[i] + ", "); // Вывод дней и шагов
+                System.out.print((i+1) + " день: " + sumDays + ", "); // Вывод дней и шагов
             }
             System.out.println("\nВсего шагов за месяц: " + sum);
             System.out.println("Наибольшее количество шагов: " + maximumSteps);
