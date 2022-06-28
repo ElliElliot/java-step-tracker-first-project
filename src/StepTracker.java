@@ -36,7 +36,7 @@ public class StepTracker {
                     }
                     currentCounter = 0;
                 }
-                System.out.print((i+1) + ": " + monthToData[month].days[i] + " "); // Вывод дней и шагов
+                System.out.print((i+1) + "день: " + monthToData[month].days[i] + " "); // Вывод дней и шагов
             }
             System.out.println("\nВсего шагов за месяц: " + sum);
             System.out.println("Наибольшее количество шагов: " + maximumSteps);
