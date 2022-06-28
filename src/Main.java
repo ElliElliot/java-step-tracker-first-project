@@ -4,7 +4,6 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         StepTracker stepTracker = new StepTracker();
         printMenu();
-
         int userInput = scanner.nextInt();
         while (userInput != 0) {
             if (userInput == 1) { //ввод и сохранение количества шагов в день
@@ -53,6 +52,7 @@ public class Main {
             userInput = scanner.nextInt(); // ещё считываем ввод пользователя
             }
         System.out.println("Программа завершена");
+        scanner.close();
     }
         public static void printMenu(){ //печать меню
             System.out.println("Что вы хотите сделать?");

@@ -1,16 +1,17 @@
 public class StepTracker {
     MonthData[] monthToData;
     int target = 10000;
+    int saveStep;
     public StepTracker() {
-        monthToData = new MonthData[12];
+        monthToData = new MonthData[11];
         for (int j = 0; j < monthToData.length; j++) {
             monthToData[j] = new MonthData();
         }
     }
     int stepOfDay (int month, int inputDate, int inputSteps){//сохранение количества пройденных шагов за день
-        monthToData[month].days[inputDate-1] = inputSteps;
-        for (int p = 0; p < 30; p++) {
-        }return monthToData[month].days[inputDate-1];
+        saveStep = inputSteps;
+        monthToData[month].days[inputDate-1] = saveStep;
+        return saveStep;
     }
         void statistics(int month) {//вывод статистики
             Converter converter = new Converter();
@@ -36,7 +37,7 @@ public class StepTracker {
                     }
                     currentCounter = 0;
                 }
-                System.out.print((i+1) + "день: " + monthToData[month].days[i] + " "); // Вывод дней и шагов
+                System.out.print((i+1) + " день: " + monthToData[month].days[i] + ", "); // Вывод дней и шагов
             }
             System.out.println("\nВсего шагов за месяц: " + sum);
             System.out.println("Наибольшее количество шагов: " + maximumSteps);
@@ -50,7 +51,7 @@ public class StepTracker {
 
     int saveTargetSteps(int targetSteps) {//запись новой цели
         target = targetSteps;
-        return targetSteps;
+        return target;
     }
 
     class MonthData {
