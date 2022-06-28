@@ -4,7 +4,7 @@ public class StepTracker {
     int saveStep;
     int sumDays;
     public StepTracker() {
-        monthToData = new MonthData[11];
+        monthToData = new MonthData[12];
         for (int j = 0; j < monthToData.length; j++) {
             monthToData[j] = new MonthData();
         }
