@@ -39,7 +39,12 @@ public class StepTracker {
                     }
                     currentCounter = 0;
                 }
-                System.out.print((i+1) + " день: " + sumDays + ", "); // Вывод дней и шагов
+                if (i<29) {// Вывод дней и шагов
+                    System.out.print((i + 1) + " день: " + sumDays + ", ");
+                }
+                if (i==29) {
+                    System.out.print("30 день: " + sumDays);
+                }
             }
             System.out.println("\nВсего шагов за месяц: " + sum);
             System.out.println("Наибольшее количество шагов: " + maximumSteps);
