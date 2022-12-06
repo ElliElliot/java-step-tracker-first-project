@@ -1,2 +1,2 @@
-# java-sprint1-hw
+# java-step-tracker-first-project
 First project
